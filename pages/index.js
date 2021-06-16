@@ -21,6 +21,7 @@ export default function Index({ posts }) {
               href={`/posts/[slug]`}
             >
               <a>{post.data.title}</a>
+              {post.content}
             </Link>
           </li>
         ))}
