@@ -1,0 +1,371 @@
+:root {
+  --bg-color: hsl(49 37% 94%);
+  --typewriterSpeed: 2s;
+  --typewriterCharacters: 12;
+  --topColor: purple;
+  --bottomColor: darkblue;
+  --skillsBackground: #2d2d2d;
+  --textColor: white;
+  --buttonColor: rgb(0, 46, 83);
+}
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--topColor)), to(var(--bottomColor)));
+  background: linear-gradient(var(--topColor), var(--bottomColor));
+  font-family: "Rubik", sans-serif;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+
+button {
+  cursor: pointer;
+}
+
+.navbar {
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0 0 10rem 0;
+}
+
+.nav-list {
+  list-style: none;
+  padding-right: 2em;
+  padding-bottom: 1em;
+}
+
+.nav-list li {
+  display: block;
+  float: left;
+  margin-left: 3rem;
+  color: blue;
+  font-weight: 700;
+}
+
+.nav-list li :active {
+  color: cyan;
+}
+
+.nav-list .nav-right {
+  float: right;
+}
+
+main {
+  min-height: 70vh;
+  width: 100%;
+  padding-top: 10vh;
+}
+
+.introduction {
+  text-align: center;
+  max-width: 60%;
+  margin: 2em auto;
+}
+
+.hello {
+  text-align: left;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 700;
+}
+
+.hello h1 {
+  font-size: 7rem;
+  float: left;
+}
+
+.hello h2 {
+  font-weight: 500;
+  font-size: 1.75rem;
+  clear: both;
+  padding-left: 0.1em;
+}
+
+.btn-talk {
+  background-color: var(--buttonColor);
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  border: none;
+  margin-top: 4rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  color: white;
+}
+
+.btn-talk:hover, .btn-talk:focus {
+  -webkit-transform: scale(1.05) translateY(-5%);
+          transform: scale(1.05) translateY(-5%);
+}
+
+.skills {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 8em;
+}
+
+.skills h2 {
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--textColor);
+}
+
+.skills h3 {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--textColor);
+}
+
+.skills-imgs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+}
+
+.skills-imgs img {
+  width: 100px;
+}
+
+.description {
+  background-color: var(--skillsBackground);
+  margin-left: 0.5em;
+  width: 100%;
+  padding: 2em 5em;
+  border-radius: 1em;
+}
+
+.contact {
+  margin-top: 5em;
+  text-align: center;
+}
+
+.contact h2 {
+  color: var(--textColor);
+}
+
+.contact-form {
+  padding: 1em;
+  text-align: center;
+  margin: 5em auto 0;
+  background-color: lightblue;
+  max-width: 60%;
+  border-radius: 1em;
+}
+
+.contact-form div {
+  margin-bottom: 1.6em;
+  text-align: left;
+}
+
+.contact-form div input {
+  width: 100%;
+  height: 2.5em;
+  font-size: 1.1rem;
+}
+
+.contact-form div label {
+  margin-bottom: 2em;
+  font-size: 1.2rem;
+}
+
+.contact-form div textarea {
+  width: 100%;
+  font-size: 1.1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.contact-form button {
+  background-color: fuchsia;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  border: none;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  color: white;
+}
+
+.contact-form button:hover, .contact-form button:focus {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+footer {
+  background-color: var(--bottomColor);
+  overflow-x: hidden;
+  text-align: center;
+}
+
+footer h5 {
+  color: var(--textColor);
+}
+
+#blink {
+  display: inline;
+}
+
+#not-blink {
+  display: none;
+}
+
+#hello-world {
+  padding-left: 0.1em;
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-clip-path: inset(0% calc(100% - 0.1em) 0% 0%);
+          clip-path: inset(0% calc(100% - 0.1em) 0% 0%);
+  /* t r b l */
+  -webkit-animation: typing var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
+          animation: typing var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+#hello-world::before,
+#hello-world::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#hello-world::before {
+  width: 0.1em;
+  background: black;
+  -webkit-animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards, blink 750ms steps(var(--typewriterCharacters)) infinite;
+          animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards, blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+@-webkit-keyframes typewriter {
+  to {
+    left: calc(100% - 0.1em);
+  }
+}
+
+@keyframes typewriter {
+  to {
+    left: calc(100% - 0.1em);
+  }
+}
+
+@-webkit-keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@-webkit-keyframes typing {
+  to {
+    -webkit-clip-path: inset(0% 0% 0% 0%);
+            clip-path: inset(0% 0% 0% 0%);
+    /* t r b l */
+  }
+}
+
+@keyframes typing {
+  to {
+    -webkit-clip-path: inset(0% 0% 0% 0%);
+            clip-path: inset(0% 0% 0% 0%);
+    /* t r b l */
+  }
+}
+
+@media (max-width: 1130px) {
+  .description-img {
+    display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  #hello-world {
+    -webkit-animation: none;
+            animation: none;
+  }
+  #hello-world::before {
+    -webkit-animation: none;
+            animation: none;
+  }
+  /* disable animations and before and after elements*/
+}
+
+input:focus {
+  outline: none !important;
+  -webkit-transition: 1s;
+  transition: 1s;
+  border-color: #0077ff;
+  -webkit-box-shadow: 0 0 10px #719ece;
+          box-shadow: 0 0 10px #719ece;
+}
+
+textarea:focus {
+  outline: none !important;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-color: #0077ff;
+  -webkit-box-shadow: 0 0 10px #719ece;
+          box-shadow: 0 0 10px #719ece;
+}
+
+.post-container {
+  max-width: 100em;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 2em;
+  padding: 0 3em;
+  place-items: center;
+}
+
+.post {
+  width: 40em;
+  background-color: lightblue;
+  padding: 0 2em;
+  border-radius: 1.5em;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.post:hover {
+  border-radius: 0.5em;
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+@media (min-width: 1200px) {
+  .post-container {
+    -ms-grid-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/*# sourceMappingURL=stylesheet.css.map */

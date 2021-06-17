@@ -1,0 +1,343 @@
+$navbar-color: #000000;
+$verdana: Verdana, Geneva, Tahoma, sans-serif;
+
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+}
+
+:root {
+  //typewriter animations variables
+  --bg-color: hsl(49 37% 94%);
+  --typewriterSpeed: 2s;
+  --typewriterCharacters: 12;
+  //gradient colors
+  --topColor: purple;
+  --bottomColor: darkblue;
+
+  --skillsBackground: #2d2d2d;
+  --textColor: white;
+  --buttonColor: rgb(0, 46, 83);
+}
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(var(--topColor), var(--bottomColor));
+  font-family: "Rubik", sans-serif;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  &:visited {
+    color: black;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+.navbar {
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0 0 10rem 0;
+}
+
+.nav-list {
+  list-style: none;
+  padding-right: 2em;
+  padding-bottom: 1em;
+  li {
+    display: block;
+    float: left;
+    margin-left: 3rem;
+    color: blue;
+    font-weight: 700;
+    :active {
+      color: cyan;
+    }
+  }
+  .nav-right {
+    float: right;
+  }
+}
+
+main {
+  min-height: 70vh;
+  width: 100%;
+  //text-align: center;
+  padding-top: 10vh;
+}
+
+.introduction {
+  text-align: center;
+  max-width: 60%;
+  margin: 2em auto;
+}
+
+.hello {
+  text-align: left;
+  width: max-content;
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 700;
+  h1 {
+    font-size: 7rem;
+    float: left;
+  }
+  h2 {
+    font-weight: 500;
+    font-size: 1.75rem;
+    clear: both;
+    //word-wrap: break-word;
+    padding-left: 0.1em;
+  }
+}
+
+.btn-talk {
+  background-color: var(--buttonColor);
+  display: inline-block;
+  //min-height: 50px;
+  //min-width: 150px;
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  border: none;
+  margin-top: 4rem;
+  transition: all 0.2s;
+  color: white;
+  &:hover,
+  &:focus {
+    transform: scale(1.05) translateY(-5%);
+    //transform: translateY(-10%);
+  }
+}
+
+.skills {
+  display: flex;
+  margin-top: 8em;
+  h2 {
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: var(--textColor);
+  }
+  h3 {
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: var(--textColor);
+  }
+}
+
+.skills-imgs {
+  display: flex;
+  gap: 1em;
+  img {
+    width: 100px;
+  }
+}
+
+.description {
+  background-color: var(--skillsBackground);
+  margin-left: 0.5em;
+  width: 100%;
+  padding: 2em 5em;
+  border-radius: 1em;
+  // border-left: 70px solid;
+  // border-image: url(./img/border.svg);
+}
+
+.contact {
+  h2 {
+    color: var(--textColor);
+  }
+  margin-top: 5em;
+  text-align: center;
+}
+
+.contact-form {
+  padding: 1em;
+  text-align: center;
+  margin: 5em auto 0;
+  background-color: lightblue;
+  max-width: 60%;
+  border-radius: 1em;
+  div {
+    margin-bottom: 1.6em;
+    text-align: left;
+    input {
+      width: 100%;
+      height: 2.5em;
+      font-size: 1.1rem;
+    }
+    label {
+      margin-bottom: 2em;
+      font-size: 1.2rem;
+    }
+    textarea {
+      width: 100%;
+      font-size: 1.1rem;
+      font-family: $verdana;
+    }
+  }
+  button {
+    background-color: fuchsia;
+    display: inline-block;
+    //min-height: 50px;
+    //min-width: 150px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    border: none;
+    transition: all 0.2s;
+    color: white;
+    &:hover,
+    &:focus {
+      transform: scale(1.02);
+    }
+  }
+}
+
+// kinda bothers me that the forms are not centered
+
+footer {
+  background-color: var(--bottomColor);
+  overflow-x: hidden;
+  text-align: center;
+  //display: flex;
+  h5 {
+    color: var(--textColor);
+  }
+}
+
+// section for the typing animation sources: kevin powell youtube (without the transparent background)
+//  and https://codepen.io/Event_Horizon/pen/RwpQNyB?editors=1100 with transparent background
+
+#blink {
+  display: inline;
+}
+
+#not-blink {
+  display: none;
+}
+
+#hello-world {
+  padding-left: 0.1em;
+  position: relative;
+  width: max-content;
+  clip-path: inset(0% calc(100% - 0.1em) 0% 0%); /* t r b l */
+  animation: typing var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s
+    forwards;
+}
+
+#hello-world::before,
+#hello-world::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#hello-world::before {
+  width: 0.1em;
+  background: black;
+  animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards,
+    blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+@keyframes typewriter {
+  to {
+    left: calc(100% - 0.1em);
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes typing {
+  to {
+    clip-path: inset(0% 0% 0% 0%); /* t r b l */
+  }
+}
+
+@media (max-width: 1130px) {
+  .description-img {
+    display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  #hello-world {
+    animation: none;
+    &::before {
+      animation: none;
+    }
+  }
+  /* disable animations and before and after elements*/
+}
+
+input:focus {
+  outline: none !important;
+  transition: 1s;
+  border-color: rgb(0, 119, 255);
+  box-shadow: 0 0 10px #719ece;
+}
+textarea:focus {
+  outline: none !important;
+  transition: 0.5s;
+  border-color: rgb(0, 119, 255);
+  box-shadow: 0 0 10px #719ece;
+}
+
+.post-container {
+  // display: flex;
+  // flex-direction: row;
+  // gap: 1em;
+  // justify-content: center;
+  // flex-wrap: wrap;
+  max-width: 100em;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 2em;
+  padding: 0 3em;
+  place-items: center;
+}
+
+.post {
+  width: 40em;
+  //min-width: 25em; //doesnt even work wtfffffffff
+  // flex: 0 1 40em;
+  background-color: lightblue;
+  padding: 0 2em;
+  // margin: 0 auto;
+  border-radius: 1.5em;
+  transition: all 0.5s;
+  cursor: pointer;
+  &:hover {
+    border-radius: 0.5em;
+    transform: scale(1.02);
+  }
+}
+
+@media (min-width: 1200px) {
+  .post-container {
+    -ms-grid-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
